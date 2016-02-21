@@ -1,9 +1,9 @@
 -----------------------------------------------------------
---  Binding for GNU MP v5.1.2
+--  Binding for GNU MP v6.1.0
 -----------------------------------------------------------
 local ffi = require 'ffi'
-local jit = require 'jit'
 
+unpack = unpack or table.unpack
 
 local header = [[
   // __GMP_SHORT_LIMB
@@ -1462,13 +1462,11 @@ function mod.f_urandomb(rop, state, nbits)
   bind.__gmpf_urandomb(rop, state, nbits)
 end
 
-
 function help.vararg(...)
   local t = { ... }
   t[#t + 1] = 0
   return unpack(t)
 end
-
 
 local types = {}
 
@@ -1476,7 +1474,6 @@ types.z = 'mpz_t'
 types.q = 'mpq_t'
 types.f = 'mpf_t'
 types.randstate = 'gmp_randstate_t'
-
 
 mod.types = types
 

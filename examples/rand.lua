@@ -1,4 +1,4 @@
-local gmp = require 'gmp' ('libgmp-10')
+local gmp = require 'gmp' ('libgmp')
 
 local rand = gmp.types.randstate()
 
